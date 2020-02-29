@@ -20,5 +20,5 @@ from parking.views import HomeView  # 추가
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', HomeView.as_view(), name='home'),  # 추가
-    path('guest/', include('guest.urls')),  # 추가
+    # path('guest/', include('guest.urls')),  # 추가
 ]

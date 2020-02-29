@@ -56,7 +56,7 @@ ROOT_URLCONF = 'parking.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],  # 프로젝트 템플릿 디렉터리 설정
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -130,5 +130,8 @@ USE_TZ = False
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
-
+# 웹 페이지에 사용할 정적파일의 최상위 URL 경로
 STATIC_URL = '/static/'
+
+# 정적파일이 위치한 경로들을 지정하는 설정 항목
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]

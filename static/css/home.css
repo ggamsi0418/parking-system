@@ -1,0 +1,32 @@
+@import url("https://fonts.googleapis.com/css?family=Black+Han+Sans&display=swap");
+
+body {
+  font-family: "Black Han Sans";
+}
+
+.container {
+  width: 100%;
+  height: fit-content;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.choice {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 15vh;
+  color: #fdfefe;
+  cursor: pointer;
+}
+
+.inParking {
+  background-color: #3498db;
+}
+
+.outParking {
+  background-color: #e74c3c;
+}
