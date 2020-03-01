@@ -7,7 +7,7 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('guest', '0002_auto_20200229_1130'),
+        ('coreSys', '0002_auto_20200229_1130'),
     ]
 
     operations = [
@@ -19,6 +19,7 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='member',
             name='expiration',
-            field=models.DateField(default=datetime.datetime(2020, 3, 29, 13, 53, 38, 748088)),
+            field=models.DateField(default=datetime.datetime(
+                2020, 3, 29, 13, 53, 38, 748088)),
         ),
     ]

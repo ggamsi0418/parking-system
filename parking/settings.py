@@ -37,8 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'phonenumber_field',  # 전화번호 필드 속성을 위한 패키지 추가
-    'guest.apps.GuestConfig',  # guest 앱 추가
+    'coreSys.apps.GuestConfig',  # guest 앱 추가
 ]
 
 MIDDLEWARE = [
