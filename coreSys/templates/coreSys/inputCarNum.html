@@ -1,11 +1,36 @@
 <!DOCTYPE html>
+{% load static %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Input Your Car Number</title>
+    <link rel="stylesheet" href="{% static '../../../static/css/reset.css' %}">
+    <link rel="stylesheet" href="{% static 'css/input.css' %}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+    
 </head>
 <body>
-    {{ NOTICE }}
+        <p>{{ STATE }}를 요청하셨습니다.</p>
+        
+        {% if STATE == "입차"  %}
+        <form action="../inProcess/" method="POST" class="navbar-form navbar-left form-carNum" role="search">
+            {% csrf_token %}
+            <div class="form-group">
+                <input name="inRequest" type="text" class="form-control" placeholder="{{ STATE }} 시킬 자동차 번호를 입력하세요.">
+            </div>
+        {% else %}
+        <form action="../outProcess/" method="POST" class="navbar-form navbar-left form-carNum" role="search">
+            {% csrf_token %}
+            <div class="form-group">
+                <input name="outRequest" type="text" class="form-control" placeholder="{{ STATE }} 시킬 자동차 번호를 입력하세요.">
+            </div>
+        {% endif %}
+            <button type="submit" class="btn btn-default">{{ STATE }} 요청</button>
+        </form>
+     
+    
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 </body>
 </html>
