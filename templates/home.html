@@ -10,8 +10,11 @@
   </head>
   <body>
     <div class="container">
-      <div class="choice inParking" onclick="location.href='http://naver.com'" >입차</div>
-      <div class="choice outParking" onclick="location.href='http://google.com'">출차</div>
+      <form class="container" action="./coreSys/inputCarNum/" method="POST">
+        {% csrf_token %}
+        <input class="choice inParking" type="submit" name="inClick" value="입차">
+        <input class="choice outParking" type="submit" name="outClick" value="출차">      
+      </form>
     </div>
   </body>
 </html>
