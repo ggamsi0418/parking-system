@@ -24,13 +24,13 @@ class User(models.Model):
     user_id = models.UUIDField(
         primary_key=True, default=uuid.uuid4, editable=False)
     user_car_number = models.CharField("USER's CAR NUMBER", max_length=8)
-    user_type = models.BooleanField(
+    user_type = models.NullBooleanField(
         help_text="'0' is visitor, '1' is member")
     state = models.BooleanField(
         default=False, help_text="'0' is entry, '1' is exit")
     in_time = models.DateTimeField(auto_now_add=True)
     out_time = models.DateTimeField(null=True, blank=True)
-    pee = models.IntegerField(null=True, blank=True)
+    fee = models.IntegerField(null=True, blank=True)
 
     def __str__(self):
         return self.user_car_number

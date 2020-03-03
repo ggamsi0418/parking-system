@@ -1,6 +1,12 @@
+@import url("https://fonts.googleapis.com/css?family=Do+Hyeon&display=swap");
+
+html body {
+  font-family: "Do Hyeon", sans-serif;
+}
+
 .container {
   width: 100vw;
-  height: 100vh;
+  height: 50vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -9,8 +15,13 @@
 
 .inCar {
   background-color: #aed6f1;
+  font-size: 15vh;
 }
 
 .outCar {
   background-color: #f5b7b1;
+}
+
+button input {
+  font-family: "Do Hyeon", sans-serif;
 }

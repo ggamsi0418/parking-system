@@ -12,4 +12,4 @@ class MemberAdmin(admin.ModelAdmin):
 @admin.register(User)
 class UserAdmin(admin.ModelAdmin):
     list_display = ['user_id', 'user_car_number', 'user_type',
-                    'state', 'in_time', 'out_time', 'pee']
+                    'state', 'in_time', 'out_time', 'fee']

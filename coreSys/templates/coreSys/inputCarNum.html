@@ -11,16 +11,17 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css"> {% endcomment %}
 </head>
 <body>
-    <div class="{{CLS_NAME}}">
-        <div>{{ STATE }}를 요청하셨습니다.</div>
+    <div class="{{CLS_NAME}} request-container">
+        <div.req-msg>{{ STATE }}를 요청하셨습니다.</div.req-msg>
         <form action={{ACTION}} method="POST" class="navbar-form navbar-left form-carNum" role="search">
             {% csrf_token %}
             <div class="form-group">
                 <input name={{NAME}} type="text" class="form-control" placeholder="{{ STATE }} 시킬 자동차 번호를 입력하세요.">
-            </div>
             <button type="submit" class="btn btn-default">{{ STATE }} 요청</button>
+            </div>
         </form>
     </div>
+    <div class="container response-container"></div>
     {% comment %} <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script> {% endcomment %}
 </body>
 </html>
