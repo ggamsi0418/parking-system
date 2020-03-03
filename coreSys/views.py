@@ -5,9 +5,6 @@ from .models import Member, User
 import datetime
 import math
 
-now = datetime.datetime.now()
-nowDate = now.strftime('%Y-%m-%d')
-
 
 def inputCarNum(request):
     state = request.POST.get('state')
@@ -15,20 +12,25 @@ def inputCarNum(request):
         action = "../inProcess/"
         name = "inRequest"
         cls_name = "container inCar"
+        cover_name = "inCar-corver"
     elif state == "출차":
         action = "../outProcess/"
         name = "outRequest"
         cls_name = "container outCar"
+        cover_name = "outCar-corver"
     context = {
         'STATE': state,
         'ACTION': action,
         'NAME': name,
-        'CLS_NAME': cls_name
+        'CLS_NAME': cls_name,
+        'COVER_NAME': cover_name
     }
     return render(request, 'coreSys/inputCarNum.html', context)
 
 
 def inProcess(request):
+    now = datetime.datetime.now()
+    nowDate = now.strftime('%Y-%m-%d')
     request_car_number = request.POST['inRequest']
     members = Member.objects.all()
     try:
@@ -52,6 +54,8 @@ def inProcess(request):
 
 
 def outProcess(request):
+    now = datetime.datetime.now()
+    nowDate = now.strftime('%Y-%m-%d')
     request_car_number = request.POST['outRequest']
     # 현재 주차장에 입차된 차량의 이용객 정보만 가져온다.
     user = User.objects.get(
@@ -70,9 +74,7 @@ def outProcess(request):
         'REQUEST_CAR_NUMBER': request_car_number,
         'USER': user,
         'USER_TYPE': user_type,
-        'IN_TIME': in_time,
-        'TIME_GAP': time_gap,
-        'TOTAL_SECONDS': time_gap.seconds,
+        'IN_TIME': user.in_time,
         'FEE': fee,
         'OUT_TIME': out_time
     }

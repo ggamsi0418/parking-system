@@ -6,11 +6,15 @@ html body {
 
 .container {
   width: 100vw;
-  height: 50vh;
+  height: 100vh;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-evenly;
   flex-direction: column;
+}
+
+.req-msg {
+  font-size: 15vh;
 }
 
 .inCar {
@@ -20,8 +24,87 @@ html body {
 
 .outCar {
   background-color: #f5b7b1;
+  font-size: 15vh;
 }
 
-button input {
+.tb {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-around;
+  flex-direction: row;
+}
+
+input,
+button {
+  color: #fff;
+  padding: 0;
+  margin: 0;
+  border: 0;
+  background-color: transparent;
   font-family: "Do Hyeon", sans-serif;
+}
+
+#cover {
+  top: 45vh;
+  left: 0;
+  right: 0;
+  width: 80vw;
+  padding: 35px;
+  margin: -83px auto 0 auto;
+  border-radius: 20px;
+  transform: scale(0.6);
+  margin-bottom: 15vh;
+}
+
+.inCar-corver {
+  background-color: #85c1e9;
+  box-shadow: 0 10px 40px #aed6f1, 0 0 0 20px #ffffffeb;
+}
+
+.outCar-corver {
+  background-color: #ff7575;
+  box-shadow: 0 10px 40px #ff7c7c, 0 0 0 20px #ffffffeb;
+}
+
+form {
+  height: 96px;
+}
+
+input[type="text"] {
+  width: 60vw;
+  height: 10vh;
+  font-size: 5vw;
+  line-height: 1;
+}
+
+input[type="text"]::placeholder {
+  /* color: #e16868; */
+  color: #f0f3f4;
+  font-size: 4vw;
+}
+
+button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 84px;
+  height: 96px;
+  cursor: pointer;
+}
+
+#s-circle {
+  font-size: 10vh;
+}
+
+#s-circle > .fa-arrow-right {
+  display: none;
+}
+
+#s-circle:hover > .fa-car {
+  display: none;
+}
+
+#s-circle:hover > .fa-arrow-right {
+  display: block;
 }
