@@ -27,7 +27,7 @@ class User(models.Model):
     user_type = models.BooleanField(
         help_text="'0' is visitor, '1' is member")
     state = models.BooleanField(
-        help_text="'0' is entry, '1' is exit")
+        default=False, help_text="'0' is entry, '1' is exit")
     in_time = models.DateTimeField(auto_now_add=True)
     out_time = models.DateTimeField(null=True, blank=True)
     pee = models.IntegerField(null=True, blank=True)

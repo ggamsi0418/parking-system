@@ -1,7 +1,16 @@
-html body {
-  width: 100%;
-  height: fit-content;
+.container {
+  width: 100vw;
+  height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
+}
+
+.inCar {
+  background-color: #aed6f1;
+}
+
+.outCar {
+  background-color: #f5b7b1;
 }
