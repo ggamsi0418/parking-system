@@ -13,14 +13,14 @@
     <div class="{{CLS_NAME}} request-container">
         <div class="req-msg">{{ STATE }}를 요청하셨습니다.</div>
         <div class="{{COVER_NAME}}" id="cover">
-            <form action={{ACTION}} method="POST" class="" role="search">
+            <form id="test-form" name="form1" action={{ACTION}} method="POST" class="" role="search" >
                 {% csrf_token %}
                 <div class="tb">
-                    <input name={{NAME}} type="text" class="" placeholder="{{ STATE }} 시킬 자동차 번호를 입력하세요.">
+                    <input id="test-input" name={{NAME}} type="text" class="cls-input" placeholder="{{ STATE }} 시킬 자동차 번호를 입력하세요." >
                     <div class="td" id="s-cover">
-                    <button type="submit">
-                        <div id="s-circle"><i class="fas fa-car"></i><i class="fas fa-arrow-right"></i></div>
-                    </button>
+                        <button type="submit" id="submitBtn">
+                            <div id="s-circle"><i class="fas fa-car"></i><i class="fas fa-arrow-right"></i></div>
+                        </button>
                     </div>
                 </div>
             </form>
@@ -32,5 +32,9 @@
             <button type="submit" class="">{{ STATE }} 요청</button>
             </div>
         </form> {% endcomment %}
+
+        {% comment %} <script src="{% static 'js/nullPrevent.js' %}"></script> {% endcomment %}
+
     </div>
+</body>
 </html>

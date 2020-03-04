@@ -14,22 +14,22 @@ html body {
 }
 
 .req-msg {
-  font-size: 15vh;
+  font-size: 10vw;
 }
 
 .inCar {
   background-color: #aed6f1;
-  font-size: 15vh;
+  /* font-size: 15vw; */
 }
 
 .outCar {
   background-color: #f5b7b1;
-  font-size: 15vh;
+  /* font-size: 15vw; */
 }
 
 .tb {
   display: flex;
-  width: 100%;
+  width: 80vw;
   align-items: center;
   justify-content: space-around;
   flex-direction: row;
@@ -50,7 +50,7 @@ button {
   left: 0;
   right: 0;
   width: 80vw;
-  padding: 35px;
+  padding: 5vh 8vw;
   margin: -83px auto 0 auto;
   border-radius: 20px;
   transform: scale(0.6);
@@ -68,7 +68,12 @@ button {
 }
 
 form {
-  height: 96px;
+  height: 10vh;
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+  /* flex-direction: row; */
 }
 
 input[type="text"] {
@@ -81,7 +86,7 @@ input[type="text"] {
 input[type="text"]::placeholder {
   /* color: #e16868; */
   color: #f0f3f4;
-  font-size: 4vw;
+  font-size: 4.5vw;
 }
 
 button {
