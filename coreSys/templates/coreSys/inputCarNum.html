@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 {% load static %}
-<html lang="en">
+<html lang="kr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,28 +13,18 @@
     <div class="{{CLS_NAME}} request-container">
         <div class="req-msg">{{ STATE }}를 요청하셨습니다.</div>
         <div class="{{COVER_NAME}}" id="cover">
-            <form id="test-form" name="form1" action={{ACTION}} method="POST" class="" role="search" >
+            <form name="form1" action={{ACTION}} method="POST" class="" role="search" >
                 {% csrf_token %}
                 <div class="tb">
-                    <input id="test-input" name={{NAME}} type="text" class="cls-input" placeholder="{{ STATE }} 시킬 자동차 번호를 입력하세요." >
+                    <input  name={{NAME}} type="text" class="cls-input" placeholder="{{ STATE }} 시킬 자동차 번호를 입력하세요." required>
                     <div class="td" id="s-cover">
-                        <button type="submit" id="submitBtn">
+                        <button type="submit" class="submitBtn" name="carNumBtn">
                             <div id="s-circle"><i class="fas fa-car"></i><i class="fas fa-arrow-right"></i></div>
                         </button>
                     </div>
                 </div>
             </form>
         </div>
-        {% comment %} <form action={{ACTION}} method="POST" class="" role="search">
-            {% csrf_token %}
-            <div class="">
-                <input name={{NAME}} type="text" class="" placeholder="{{ STATE }} 시킬 자동차 번호를 입력하세요.">
-            <button type="submit" class="">{{ STATE }} 요청</button>
-            </div>
-        </form> {% endcomment %}
-
-        {% comment %} <script src="{% static 'js/nullPrevent.js' %}"></script> {% endcomment %}
-
     </div>
 </body>
 </html>

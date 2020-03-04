@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+    </style>
+
+</head>
+<body>
+    {{REQUEST_CAR_NUMBER}}
+    {{IN_TIME}}
+    {{NOW_TIME}}
+    {{FEE}}
+
+    <form action="../payResponse/"method="POST">
+        {% csrf_token %}
+        <input type="text" name="money" value="" required>
+        <input type="hidden" name="request_car_number" value="{{REQUEST_CAR_NUMBER}}">
+        <input type="hidden" name="fee" value="{{FEE}}">
+        <button type="submit"></button>
+    </form>
+</body>
+</html>
+
