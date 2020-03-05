@@ -1,12 +1,25 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    "{{NAME}}님 출차가 완료됐습니다."
-    "안녕히 가십시오." 
-</body>
+{% load static %}
+<html lang="kr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="refresh" content="4.5; url=http://localhost:8000/">
+    <link rel="stylesheet" href="{% static 'css/reset.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/out.css' %}" />
+    <script
+      src="https://kit.fontawesome.com/0cf4c20639.js"
+      crossorigin="anonymous"
+    ></script>
+    <title>출차 완료</title>
+  </head>
+  <body class="outCar">
+    <div class="greeting-container">
+      <div class="greeting text-1">{{NAME}}님 출차가 완료됐습니다.</div>
+      <div class="greeting text-2">안녕히 가십시오.</div>
+    </div>
+    <div class="car-container">
+      <i class="fas fa-car-side car"></i>
+    </div>
+  </body>
 </html>

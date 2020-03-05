@@ -1,27 +1,48 @@
 <!DOCTYPE html>
+{% load static %}
 <html lang="kr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <style>
-
-    </style>
-
-</head>
-<body>
-    {{REQUEST_CAR_NUMBER}}
-    {{IN_TIME}}
-    {{NOW_TIME}}
-    {{FEE}}
-
-    <form action="../payResponse/"method="POST">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="{% static 'css/reset.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/payment.css' %}"  />
+    <title>Payment</title>
+    <style></style>
+  </head>
+  <body>
+    <div class="info-container">
+      <span
+        >총 이용 시간은&nbsp;
+        <p>{{TIME_GAP_HOUR}}시간</p>
+        입니다.</span
+      >
+      <span
+        >이용 금액은&nbsp;
+        <p>{{FEE}}</p>
+        원입니다.</span
+      >
+      <span>결제 부탁드립니다.</span>
+    </div>
+    <div class="gap"></div>
+    <div class="form-container">
+      <form class="form__group" action="../payResponse/" method="POST">
         {% csrf_token %}
-        <input type="text" name="money" value="" required>
-        <input type="hidden" name="request_car_number" value="{{REQUEST_CAR_NUMBER}}">
-        <input type="hidden" name="fee" value="{{FEE}}">
-        <button type="submit"></button>
-    </form>
-</body>
+        <input
+          type="text"
+          class="form__input"
+          name="money"
+          placeholder="현금 또는 카드"
+          autocomplete="off"
+          required
+        />
+        <button type="submit" class="form__label">결제</button>
+        <input type="hidden" name="request_car_number" value="{{REQUEST_CAR_NUMBER}}" />  
+        <input type="hidden" name="fee" value="{{FEE}}" />
+      </form>
+    </div>
+  </body>
 </html>
-

@@ -15,15 +15,18 @@ html body {
 
 .req-msg {
   font-size: 10vw;
+  color: #2c3e50;
 }
 
 .inCar {
-  background-color: #aed6f1;
+  background: #aed6f1;
+  background: linear-gradient(to right, #b0d2e9, #92c6e9, #69b9ee);
   /* font-size: 15vw; */
 }
 
 .outCar {
-  background-color: #f5b7b1;
+  background: #f5b7b1; /* fallback for old browsers */
+  background: linear-gradient(to right, #fabeb9, #f5a19b, #f08f8a);
   /* font-size: 15vw; */
 }
 

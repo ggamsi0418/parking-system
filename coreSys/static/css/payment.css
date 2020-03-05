@@ -1,0 +1,114 @@
+@import url("https://fonts.googleapis.com/css?family=Do+Hyeon&display=swap");
+
+/* html body {
+  font-family: "Do Hyeon", sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 100vw;
+  flex-direction: column;
+  background-color: #f5b7b1;
+} */
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+  font-size: 62, 5%;
+}
+
+body {
+  height: 100vh;
+  width: 100%;
+  background: #f5b7b1; /* fallback for old browsers */
+  background: linear-gradient(to right, #fabeb9, #f5a19b, #f08f8a);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  color: #f0f3f4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.info-container {
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+span {
+  font-family: "Do Hyeon", sans-serif;
+  color: #2c3e50;
+  font-size: 5vw;
+  margin-top: 2vh;
+  display: inline-flex;
+}
+
+p {
+  color: #fff;
+}
+
+.gap {
+  height: 4vw;
+}
+
+.form-container {
+}
+
+.form__label {
+  color: #fff;
+  font-family: "Roboto", sans-serif;
+  font-size: 1.5rem;
+  margin-left: 2rem;
+  margin-top: 0.9rem;
+  display: block;
+  transition: all 0.3s;
+  transform: translateY(0rem);
+  transform: translatex(17vw);
+  width: 12vw;
+  height: 5vh;
+  background-color: rgb(255, 255, 255);
+  border-radius: 2rem;
+  border-style: hidden;
+  font-weight: bold;
+  background-color: #ec7063;
+  opacity: 0.9;
+  cursor: pointer;
+  border-color: #f14a37;
+}
+
+.form__input {
+  font-family: "Roboto", sans-serif;
+  color: #333;
+  font-size: 1.8rem;
+  font-weight: bold;
+  margin: 0 auto;
+  padding: 1.5rem 2rem;
+  border-radius: 2rem;
+  background-color: rgb(255, 255, 255);
+  border: none;
+  width: 90%;
+  height: 5vh;
+  display: block;
+  border-bottom: 0.3rem solid transparent;
+  transition: all 0.3s;
+}
+
+.form__input:placeholder-shown + .form__label {
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transform: translateY(-4rem);
+  transform: translateY(-4rem);
+  transform: translatex(0rem);
+}
+
+.form__group {
+  width: 50vw;
+}

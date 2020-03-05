@@ -45,9 +45,9 @@ def inProcess(request):
         user_type = False
     user_car_number = request_car_number
     context = {
-        'name': name,
-        'user_car_number': user_car_number,
-        'user_type': user_type,
+        'NAME': name,
+        'USER_CAR_NUMBER': user_car_number,
+        'USER_TYPE': user_type,
     }
     user = User(user_car_number=user_car_number, user_type=user_type)
     user.save()
@@ -78,10 +78,12 @@ def payRequest(request, request_car_number):
     time_gap = now - in_time  # 현재(출차 요청) 시간과 입차 시간의 차이를 구한다.
     # 주차장 이용 요금은 시간당 1,000원. 초단위 계산은 올림으로 진행.
     fee = math.ceil(time_gap.seconds/3600)*1000
+    time_gap_hour = round(time_gap.seconds/3600, 1)  # 시간을 소수 첫째자리까지 표현
     context = {
         'REQUEST_CAR_NUMBER': request_car_number,
         'IN_TIME': user.in_time,
         'NOW_TIME': now,
+        'TIME_GAP_HOUR': time_gap_hour,
         'FEE': fee,
     }
     return render(request, 'coreSys/payment.html', context)
