@@ -6,15 +6,45 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Parking System</title>
     <link rel="stylesheet" href="{% static 'css/reset.css' %}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
     <link rel="stylesheet" href="{% static 'css/home.css' %}">
   </head>
   <body>
-    <div class="container">
-      <form class="container" action="./coreSys/inputCarNum/" method="POST">
-        {% csrf_token %}
-        <input class="choice inParking" type="submit" name="state" value="입차">
-        <input class="choice outParking" type="submit" name="state" value="출차">      
-      </form>
+      <div class="total-container">
+        <!-- 정기 회원 신규 등록 버튼 -->
+        <button id="modal-btn" type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+          Sign Up
+        </button>
+        <!-- 정기 회원 신규 등록 Form -->
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">신규 정기 회원 등록</h4>
+              </div>
+              <form class="form-signUp" action="./signUp/" method="POST">
+                {% csrf_token %}
+                <div class="modal-body">
+                  {{form.as_p}}
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-default" data-dismiss="modal">취소</button>
+                  <button type="submit" class="btn btn-primary">등록</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+        <!-- 입/출차 선택 From-->
+        <form class="parking-container" action="./coreSys/inputCarNum/" method="POST">
+          {% csrf_token %}
+          <input class="choice inParking" type="submit" name="state" value="입차">
+          <input class="choice outParking" type="submit" name="state" value="출차">      
+        </form>
     </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js" ></script>  
   </body>
 </html>

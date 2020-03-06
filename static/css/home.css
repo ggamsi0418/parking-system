@@ -1,6 +1,7 @@
 @import url("https://fonts.googleapis.com/css?family=Black+Han+Sans&display=swap");
 
-.container {
+.total-container,
+.parking-container {
   width: 100%;
   height: fit-content;
   display: flex;
@@ -29,3 +30,50 @@
 .outParking {
   background-color: #ec7063;
 }
+
+#modal-btn {
+  position: absolute;
+  left: 10px;
+  bottom: 10px;
+  float: left;
+  z-index: 2;
+  background: #022f4d;
+  opacity: 0.7;
+  border: 0.3rem solid;
+  border-radius: 12px;
+  font-family: "Black Han Sans";
+}
+
+/* 여기부터는 Form 디자인 */
+
+.modal-header {
+  background-color: #eaeded;
+}
+.modal-body {
+  width: 100%;
+  background-color: #fbfcfc;
+  display: inline-block;
+  /* align-items: center; */
+  text-align: center;
+  /* justify-content: center; */
+}
+.modal-footer {
+  background-color: #eaeded;
+}
+
+input[type="text"] {
+  border: none;
+  border-bottom: 2px solid #2c3e50;
+  background-color: #fbfcfc;
+  color: #2c3e50;
+  /* font-size: 5vw; */
+}
+
+label {
+  width: 73px;
+  text-align: right;
+}
+
+/* .modal-content {
+  border-radius: 3px;
+} */

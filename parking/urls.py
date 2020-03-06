@@ -15,10 +15,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from parking.views import HomeView  # 추가
+from . import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', HomeView.as_view(), name='home'),  # 추가
+    path('', views.HomeView, name='home'),  # 추가
+    path('signUp/', views.signUpMember, name="signUp"),  # 추가
     path('coreSys/', include('coreSys.urls'), name='coreSys'),  # 추가
 ]
