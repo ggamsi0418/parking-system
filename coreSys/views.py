@@ -7,6 +7,7 @@ import math
 import json
 
 
+# 입차 시 자동차 번호 입력
 def inputCarNum(request):
     state = request.POST.get('state')
     if state == "입차":  # 메인 페이지에서 입차를 클릭해서 넘어온 경우
@@ -29,6 +30,7 @@ def inputCarNum(request):
     return render(request, 'coreSys/inputCarNum.html', context)
 
 
+# 입차 처리
 def inProcess(request):
     now = datetime.datetime.now()
     nowDate = now.strftime('%Y-%m-%d')
@@ -54,6 +56,7 @@ def inProcess(request):
     return render(request, 'coreSys/inFinish.html', context)
 
 
+# 출차 처리
 def outProcess(request):
     request_car_number = request.POST['outRequest']
     # 현재 주차장에 입차된 차량(state=False)의 이용객 정보만 가져온다.

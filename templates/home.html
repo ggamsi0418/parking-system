@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
     <link rel="stylesheet" href="{% static 'css/home.css' %}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js" ></script>  
   </head>
   <body>
       <div class="total-container">
@@ -43,8 +45,10 @@
           <input class="choice inParking" type="submit" name="state" value="입차">
           <input class="choice outParking" type="submit" name="state" value="출차">      
         </form>
+        <script>
+          $('#id_member_car_number').attr('pattern', '^\\d{2,3}\\D\\d{4}$');
+          $('#id_phone').attr('pattern', '^01[016789]-\\d{3,4}-\\d{4}$');
+        </script>
     </div>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-    <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js" ></script>  
   </body>
 </html>

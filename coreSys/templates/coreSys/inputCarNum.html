@@ -8,6 +8,9 @@
     <link rel="stylesheet" href="{% static 'css/reset.css' %}">
     <link rel="stylesheet" href="{% static 'css/input.css' %}">
     <script src="https://kit.fontawesome.com/0cf4c20639.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+    integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
+  </script>
 </head>
 <body>
     <div class="{{CLS_NAME}} container">
@@ -26,5 +29,8 @@
             </form>
         </div>
     </div>
+    <script>
+        $('.cls-input').attr('pattern', '^\\d{2,3}\\D\\d{4}$');
+    </script>
 </body>
 </html>
