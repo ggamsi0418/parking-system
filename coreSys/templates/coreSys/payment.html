@@ -22,7 +22,6 @@
       {% if messages %}
         <div class="failure-msg">
           {% for message in messages %}
-            {% comment %} {{message.tags}} {% endcomment %}
             <span id="msg">{{message.message}}</span> 
           {% endfor %}
         </div>

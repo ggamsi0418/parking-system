@@ -1,13 +1,16 @@
+from dateutil.relativedelta import relativedelta
+from datetime import datetime, timedelta
+from django.db import models
+from django import forms
 import uuid
 import re
-from django import forms
-from django.db import models
-from datetime import datetime, timedelta
-from dateutil.relativedelta import relativedelta
 
 
 # Create your models here.
 class Member(models.Model):
+    '''
+    정기 회원 테이블
+    '''
     member_id = models.UUIDField(
         primary_key=True, default=uuid.uuid4, editable=False)
     name = models.CharField('NAME', max_length=15)
@@ -24,6 +27,9 @@ class Member(models.Model):
 
 
 class User(models.Model):
+    '''
+    주차장 이용객 테이블
+    '''
     user_id = models.UUIDField(
         primary_key=True, default=uuid.uuid4, editable=False)
     user_car_number = models.CharField("USER's CAR NUMBER", max_length=8)
