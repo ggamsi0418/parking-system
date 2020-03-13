@@ -8,29 +8,60 @@
     <link rel="stylesheet" href="{% static 'css/reset.css' %}">
     <link rel="stylesheet" href="{% static 'css/input.css' %}">
     <script src="https://kit.fontawesome.com/0cf4c20639.js" crossorigin="anonymous"></script>
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
-    integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   </script>
 </head>
 <body>
     <div class="{{CLS_NAME}} container">
-        <div class="req-msg">{{ STATE }}를 요청하셨습니다.</div>
+        <div class="req-msg" >{{ STATE }}를 요청하셨습니다.</div>
         <div class="{{COVER_NAME}}" id="cover">
-            <form name="form1" action={{ACTION}} method="POST" class="" role="search" >
+            {% comment %} <form name="form1" action={{ACTION}} method="POST" class="" role="search" > {% endcomment %}
+            <form name="form1" action='#' method="POST" class="" role="search" onsubmit="return false" >
                 {% csrf_token %}
                 <div class="tb">
                     <input  name={{NAME}} type="text" class="cls-input" placeholder="{{ STATE }} 시킬 자동차 번호를 입력하세요." required>
                     <div class="td" id="s-cover">
-                        <button type="submit" class="submitBtn" name="carNumBtn">
+                        {% comment %} <button type="submit" class="submitBtn" name="carNumBtn"> {% endcomment %}
+                        <button type="button" onClick="carInCheck('{{ACTION}}')" class="submitBtn" name="carNumBtn">
                             <div id="s-circle"><i class="fas fa-car"></i><i class="fas fa-arrow-right"></i></div>
                         </button>
                     </div>
                 </div>
             </form>
         </div>
+        <div class="msg_container"><span class="error_msg"></span></div>
     </div>
     <script>
-        $('.cls-input').attr('pattern', '^\\d{2,3}\\D\\d{4}$');
+        // 백엔드에서 오입력 방지하기
+          function carInCheck(url){
+            var inputCarNum = $('.cls-input').val();  
+            console.log(url)
+            //var state = $('.req-msg').text();
+            $.ajax({
+              type: "POST", // Request 전송 방식
+              url: url, // 해당 Request를 보낼 주소
+              data: { // json 형식으로 서버에 데이터 전달              
+                'inputCarNum': inputCarNum,
+                //'state': state,
+                'csrfmiddlewaretoken': '{{csrf_token}}',
+              },
+              dataType: "json", // 주고 받을 데이터의 형식
+              success: function(response){ // ajax 통신을 성공했을 때 호출
+                if (response.error_msg == null ) { // 유효성 검증 합격
+                  if (response.step == 'inFinish') {
+                    //console.log(response.html)
+                    document.write(response.html)
+                  }else if (response.step == 'outFinish') {
+                    window.location.href = response.redirect_url
+                  } else if (response.step == 'payRequest') {
+                    window.location.href = response.redirect_url
+                  }
+                }else { // 유효성 검증 붏합격
+                  $('.error_msg').html(response.error_msg);
+                }
+              }
+            })
+          }
     </script>
 </body>
 </html>

@@ -1,4 +1,6 @@
 import uuid
+import re
+from django import forms
 from django.db import models
 from datetime import datetime, timedelta
 from dateutil.relativedelta import relativedelta
@@ -11,7 +13,8 @@ class Member(models.Model):
     name = models.CharField('NAME', max_length=15)
     phone = models.CharField(
         max_length=13, help_text='Contact phone number')
-    member_car_number = models.CharField("MEMBER's CAR NUMBER", max_length=8)
+    member_car_number = models.CharField(
+        "MEMBER's CAR NUMBER", max_length=8)
     registration = models.DateField(auto_now=True)
     expiration = models.DateField(
         default=(datetime.now()+relativedelta(months=1)))

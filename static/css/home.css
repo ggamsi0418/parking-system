@@ -70,10 +70,17 @@ input[type="text"] {
 }
 
 label {
-  width: 73px;
+  width: 20%;
+  /* width: 7vw; */
+
   text-align: right;
 }
 
-/* .modal-content {
-  border-radius: 3px;
-} */
+.msg_container {
+  width: 100%;
+  text-align: center;
+}
+
+.error_msg {
+  color: red;
+}

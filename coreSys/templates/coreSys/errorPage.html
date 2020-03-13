@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="kr">
+  {% load static %}
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static 'css/reset.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/error.css' %}" />
+    <meta http-equiv="refresh" content="5; url=http://127.0.0.1:8000/" />
+    <title>접근 방지</title>
+  </head>
+  <body>
+    <div class="background"></div>
+    <div class="container">
+      <div class="message">
+        <p id="msg-1">올바르지 않은 접근입니다.</p>
+        <p id="msg-2">잠시 후 메인 페이지로 이동합니다.</p>
+      </div>
+      <div class="timer">
+        <div id="app"></div>
+      </div>
+    </div>
+    <script src="{% static 'js/error.js' %}"></script>
+  </body>
+</html>

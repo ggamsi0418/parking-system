@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 {% load static %}
-<html lang="en">
+<html lang="kr">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -9,8 +9,8 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
     <link rel="stylesheet" href="{% static 'css/home.css' %}">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-    <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js" ></script>  
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js" ></script>  
   </head>
   <body>
       <div class="total-container">
@@ -26,14 +26,16 @@
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                 <h4 class="modal-title" id="myModalLabel">신규 정기 회원 등록</h4>
               </div>
-              <form class="form-signUp" action="./signUp/" method="POST">
+              <div class="msg_container"><span class="error_msg"></span></div>
+              <form class="form-signUp" action="" method="POST">
                 {% csrf_token %}
                 <div class="modal-body">
                   {{form.as_p}}
                 </div>
                 <div class="modal-footer">
                   <button type="button" class="btn btn-default" data-dismiss="modal">취소</button>
-                  <button type="submit" class="btn btn-primary">등록</button>
+                  <button type="button" onClick="carNumCheck()" class="btn btn-primary">등록</button>
+                  {% comment %} <button type="submit" class="btn btn-primary">등록</button> {% endcomment %}
                 </div>
               </form>
             </div>
@@ -46,8 +48,32 @@
           <input class="choice outParking" type="submit" name="state" value="출차">      
         </form>
         <script>
-          $('#id_member_car_number').attr('pattern', '^\\d{2,3}\\D\\d{4}$');
-          $('#id_phone').attr('pattern', '^01[016789]-\\d{3,4}-\\d{4}$');
+          // 백엔드에서 오입력 방지하기
+          function carNumCheck(){
+            var inputName = $('#id_name').val();
+            var inputPhoneNum = $('#id_phone').val();
+            var inputCarNum = $('#id_member_car_number').val();
+            var expiration = $('#id_expiration').val();
+            $.ajax({
+              type: "POST", // Request 전송 방식
+              url: "signUp/", // 해당 Request를 보낼 주소
+              data: { // json 형식으로 서버에 데이터 전달              
+                'name': inputName,
+                'phone': inputPhoneNum,
+                'member_car_number': inputCarNum,
+                'expiration': expiration,
+                'csrfmiddlewaretoken': '{{csrf_token}}',
+              },
+              dataType: "json", // 주고 받을 데이터의 형식
+              success: function(response){ // ajax 통신을 성공했을 때 호출
+                if (response.error_msg == null ) { // 유효성 검증 합격
+                  window.location.replace("{% url 'home' %}")
+                }else{ // 유효성 검증 붏합격
+                  $('.error_msg').html(response.error_msg);
+                }
+              }
+            })
+          } 
         </script>
     </div>
   </body>

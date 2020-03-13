@@ -116,3 +116,13 @@ button {
 #s-circle:hover > .fa-arrow-right {
   display: block;
 }
+
+.msg_container {
+  width: 100%;
+  text-align: center;
+}
+
+.error_msg {
+  font-size: 5vw;
+  color: #2c3e50;
+}

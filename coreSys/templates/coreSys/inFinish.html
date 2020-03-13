@@ -1,19 +1,32 @@
 <!DOCTYPE html>
-{% load static %}
+
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="refresh" content="4.5; url=http://localhost:8000/">
-    <link rel="stylesheet" href="{% static 'css/reset.css' %}" />
-    <link rel="stylesheet" href="{% static 'css/in.css' %}" />
+    <meta http-equiv="refresh" content="4.5; url=http://127.0.0.1:8000/">
+    <link rel="stylesheet" href='/static/css/reset.css'/>
+    <link rel="stylesheet" href='/static/css/in.css' />
     <script
       src="https://kit.fontawesome.com/0cf4c20639.js"
       crossorigin="anonymous"
     ></script>
+    {% comment %} <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Do+Hyeon&display=swap"> {% endcomment %}
     <title>입차 완료</title>
+    <style>
+      .inCar {
+        z-index: -10;
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        background: #aed6f1;
+        background: linear-gradient(to right, #b0d2e9, #92c6e9, #69b9ee);
+      }
+    </style>
   </head>
-  <body class="inCar">
+  <body>
+    <div class="inCar">
+    </div>
     <div class="greeting-container">
       <div class="greeting text-1">{{NAME}}님 입차가 완료됐습니다.</div>
       <div class="greeting text-2">어서 오십시오.</div>

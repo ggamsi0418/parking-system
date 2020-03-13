@@ -32,6 +32,10 @@ html body {
   height: 50%;
 }
 .inCar {
+  z-index: -10;
+  position: fixed;
+  width: 100%;
+  height: 100%;
   background: #aed6f1;
   background: linear-gradient(to right, #b0d2e9, #92c6e9, #69b9ee);
 }

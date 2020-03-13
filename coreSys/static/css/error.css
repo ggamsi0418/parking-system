@@ -1,0 +1,93 @@
+@import url("https://fonts.googleapis.com/css?family=Do+Hyeon&display=swap");
+
+html body {
+  font-family: "Do Hyeon", sans-serif;
+}
+.background {
+  z-index: -10;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: #bb8fce;
+  background: linear-gradient(to right, #bb8fce, #b479ce, #ad52d4);
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.message {
+  width: 100vw;
+  height: 50vh;
+  display: flex;
+  flex-direction: column;
+  /* align-items: center; */
+  justify-content: center;
+  text-align: center;
+  color: #f0f3f4;
+  font-size: 6vw;
+}
+
+.timer {
+  height: 50vh;
+  width: 100vw;
+
+  display: grid;
+  place-items: center;
+}
+
+.base-timer {
+  position: relative;
+  width: 300px;
+  height: 300px;
+}
+
+.base-timer__svg {
+  transform: scaleX(-1);
+}
+
+.base-timer__circle {
+  fill: none;
+  stroke: none;
+}
+
+.base-timer__path-elapsed {
+  stroke-width: 7px;
+  stroke: grey;
+}
+
+.base-timer__path-remaining {
+  stroke-width: 7px;
+  stroke-linecap: round;
+  transform: rotate(90deg);
+  transform-origin: center;
+  transition: 1s linear all;
+  fill-rule: nonzero;
+  stroke: currentColor;
+}
+
+.base-timer__path-remaining.green {
+  color: rgb(48, 214, 139);
+}
+
+.base-timer__path-remaining.orange {
+  color: rgb(233, 171, 55);
+}
+
+.base-timer__path-remaining.red {
+  color: #d64262;
+}
+
+.base-timer__label {
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 48px;
+  color: #f0f3f4;
+}

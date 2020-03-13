@@ -59,8 +59,8 @@ p {
   height: 4vw;
 }
 
-.form-container {
-}
+/* .form-container {
+} */
 
 .form__label {
   color: #fff;
@@ -111,4 +111,17 @@ p {
 
 .form__group {
   width: 50vw;
+}
+
+.failure-msg {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+}
+
+#msg {
+  font-family: "Do Hyeon", sans-serif;
+  font-size: 5vw;
+  color: #fff;
 }
